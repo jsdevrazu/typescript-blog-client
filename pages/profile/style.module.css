@@ -1,0 +1,15 @@
+.profileInfo{
+    padding: 5em 0px;
+}
+
+.profileWrap{
+    display: flex;
+    gap: 3em;
+}
+
+
+@media (max-width:550px){
+    .profileWrap{
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,82 @@
+.profile{
+    border: 1px solid #ddd;
+    padding: 2em;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+}
+
+.userImg {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.userImg img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.userInfo{
+    margin-top: 1em;
+    text-align: center;
+}
+
+.userInfo h3{
+    color: #333;
+    font-size: 1.3em;
+}
+
+.userInfo p{
+    margin-bottom: 0.6em;
+    margin-top: 0.6em;
+}
+
+.model{
+    position: absolute;
+    top: 0px;
+    right: -500px;
+    width: 330px;
+    height: 100vh;
+    z-index: 100;
+    background-color: #fff;
+    padding: 1em;
+    transition: 0.5s ease-in-out;
+}
+.modelActive{
+    right: 0px;
+}
+
+.model svg{
+    position: absolute;
+    top: 80px;
+    left: 155px;
+    font-size: 1.5em;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.userImg img{
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.userImg label:hover svg{
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay{
+    composes: overlay from '../navbar/style.module.css';
+    background-color: #0000005d;
+}
+
+.overlayActive{
+    composes: overlayActive from '../navbar/style.module.css'
+}
+
+.formControl{
+    composes: formControl from '../../../styles/login.module.css'
+}

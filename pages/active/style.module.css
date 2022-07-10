@@ -1,0 +1,19 @@
+.error, .success{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    padding: 2em;
+    width: 550px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    line-height: 30px;
+    border-radius: 20px;
+}
+
+.success{
+    background-color: green;
+}

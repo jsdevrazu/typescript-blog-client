@@ -1,0 +1,58 @@
+.category {
+    padding: 5em 0px;
+}
+
+.formControl label {
+    letter-spacing: 2px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    width: 100%;
+    display: block;
+    margin-bottom: 1em;
+}
+
+.formControl input {
+    width: 70%;
+    border: none;
+    outline: none;
+    padding: 0.7em;
+    border-bottom: 1px solid #505050;
+}
+
+.formControl input:focus {
+    outline: 2px solid var(--primary-color);
+    border: none;
+}
+
+.listCategory {
+    border: 1px solid #ddd;
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1em;
+    max-width: 350px;
+    border-radius: 8px;
+}
+
+.listCategory h2{
+    font-size: 1.1em;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.icon svg{
+    cursor: pointer;
+}
+
+@media (max-width:550px) {
+    .form button{
+        margin-top: 1em;
+    }
+}

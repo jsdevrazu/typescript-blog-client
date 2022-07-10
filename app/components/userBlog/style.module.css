@@ -1,0 +1,6 @@
+.homeBlogs{
+    composes: homeBlogs from '../../../styles/Home.module.css'
+}
+.paginationMain{
+    composes: homeBlogs from '../../../pages/blogs/style.module.css'
+}

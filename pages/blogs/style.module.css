@@ -1,0 +1,14 @@
+.category{
+    padding: 5em 0px;
+}
+
+.homeBlogs{
+    composes: homeBlogs from '../../styles/Home.module.css'
+}
+
+.paginationMain{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
