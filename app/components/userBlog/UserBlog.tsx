@@ -5,12 +5,17 @@ import Card from '../card/Card';
 import Loader from '../loader/Loader';
 import styles from './style.module.css';
 
+interface IProps {
+  user: any;
+  blogs: any
+}
+
 const UserBlog = () => {
 
   const {
     query: { id },
   } = useRouter();
-  const [blogs, setBlogs] = useState([{}]);
+  const [blogs, setBlogs] = useState<IProps[]>();
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(0);
   const [page, setPage] = useState(1);
