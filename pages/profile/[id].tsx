@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import Loader from "../../app/components/loader/Loader";
 import Meta from "../../app/components/meta/Meta";

@@ -1,8 +1,9 @@
 import axios from "axios";
 import moment from "moment";
+import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import Comment from "../../app/components/comment/Comment";
@@ -15,12 +16,12 @@ import { IBlog, IComment, IUser } from "../../app/utils/typescript";
 import NotFound from "../404";
 import styles from "./style.module.css";
 
-const BlogDetails = () => {
+const BlogDetails:FC<any> = ({ blog }) => {
   const {
     query: { id },
   } = useRouter();
   const [loading, setLoading] = useState(false);
-  const [blogDetails, setBlogDetails] = useState<IBlog>();
+  const [blogDetails, setBlogDetails] = useState<IBlog>(blog);
   const [error, setError] = useState("");
   const [body, setBody] = useState("");
   const { token, user } = useSelector((state: RootState) => state.auth);
@@ -30,25 +31,7 @@ const BlogDetails = () => {
   const dispatch = useDispatch();
   const limit = 6;
 
-  useEffect(() => {
-    if (id) {
-      const getDetailsBlog = async () => {
-        setLoading(true);
-        try {
-          const { data } = await axios.get(
-            `${process.env.NEXT_PUBLIC_PROXY_API}/blog/blog/${id}`
-          );
-          setLoading(false);
-          setBlogDetails(data?.blog);
-        } catch (error: any) {
-          setLoading(false);
-          setError(error?.response?.data?.message);
-        }
-      };
-
-      getDetailsBlog();
-    }
-  }, [id]);
+ 
 
   const handleComment = async (body: string) => {
     if (!token) return toast.error("Please login");
@@ -261,5 +244,19 @@ const BlogDetails = () => {
     </>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const { id } = context.query;
+  const { data } = await axios.get(
+    `${process.env.NEXT_PUBLIC_PROXY_API}/blog/blog/${id}`
+  );
+
+  return {
+    props: {
+      blog: data?.blog
+    }, // will be passed to the page component as props
+  }
+}
+
 
 export default BlogDetails;
